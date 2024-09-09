@@ -46,7 +46,9 @@ const dontDoThis = ((n1 + n2 + n3 + n4) == 50) &&
   (n1 != n2 && n1 != n3 && n1 != n4 && n2 != n3 && n2 != n4 && n3 != n4);
 
 // Part 1: Math Problems
-console.log("Part 1: Math Problems")
+
+console.log("Part 1: Math Problems");
+
 // console.log(length("Part 1: Math Problems")*"=")
 // Implement the following:
     // Check if all numbers are divisible by 5. Cache the result in a variable.
@@ -74,4 +76,80 @@ console.log(`Q#4: First number minus the second number, ${firstminussecond}, tim
     // Find the remainder of dividing the result by the fourth number.
 let remainder = firstminussecond%n4
 console.log(`Q#5: The remainder of dividing the result by the fourth number.`, remainder)
-    // Change the way that isOver25 calculates so that we do not need to use the NOT operator (!) in other logic comparisons. Rename the variable as appropriate.
+// Change the way that isOver25 calculates so that we do not need to use 
+// the NOT operator (!) in other logic comparisons. Rename the variable as appropriate.
+let is25LessThenN = 25<n1 || 25 < n2 || 25 < n3 || 25 < n4 
+if (is25LessThenN == true) {
+    console.log(`Q#6: There is at least one number which is over 25`)
+}  else {
+    console.log("Q#6: No larger than 25")
+}
+
+// Part 2: Practical Math
+// Let’s look at a more practical scenario.
+// You are planning a cross-country road trip!
+// =====================================
+// The distance of the trip, in total, is 1,500 miles.
+let totalDistance = 1500; //in miles
+let fuelBudget = 175; // $
+let averageCostFuelPerGallon = 3 // $
+
+
+
+// Your car’s fuel efficiency is as follows:
+// First scenario
+// ..01.. At 55 miles per hour, you get 30 miles per gallon.
+let fuel55mph = 30;// miles per gallon.
+let fuel60mph = 28; // miles per gallon.
+let fuel75mph = 23; // miles per gallon.
+console.log("==================PART-2========================================")
+// ==========================================================
+// Question:
+// Q1 How many gallons of fuel will you need for the entire trip?
+let gallonWith55mph = totalDistance / fuel55mph
+let gallonWith60mph = totalDistance / fuel60mph
+let gallonWith75mph = totalDistance / fuel75mph
+console.log(`${gallonWith55mph} gallons of fuel will be needed for the entire trip while driving 55mph`)
+console.log(`${gallonWith60mph} gallons of fuel will be needed for the entire trip while driving 60mph`)
+console.log(`${gallonWith75mph} gallons of fuel will be needed for the entire trip while driving 75mph`)
+// Q2. Will your budget be enough to cover the fuel expense?
+// Q3. How long will the trip take, in hours?
+// =============================================
+
+// Calculate fuel expense for each speed
+let fuelExpense55 = gallonWith55mph * averageCostFuelPerGallon;
+let fuelExpense60 = gallonWith60mph * averageCostFuelPerGallon;
+let fuelExpense75 = gallonWith75mph * averageCostFuelPerGallon;
+// # Calculate the time taken for the trip at each speed
+let time55 = totalDistance / 55;  // in hours
+let time60 = totalDistance / 60;  // in hours
+let time75 = totalDistance / 75;  // in hours
+// Check if the budget is enough for each speed
+let isbudgetEnough55 = fuelExpense55 <= fuelBudget;
+let isbudgetEnough60 = fuelExpense60 <= fuelBudget;
+let isbudgetEnough75 = fuelExpense75 <= fuelBudget;
+
+// Print the results
+console.log("For 55 MPH:");
+console.log("Gallons Needed: " + gallonWith55mph.toFixed(2));
+console.log("Fuel Expense: $" + fuelExpense55.toFixed(2));
+console.log("Time: " + time55.toFixed(2) + " hours");
+console.log("Is Budget Enough: " + (isbudgetEnough55 ? "Yes" : "No"));
+console.log("======================================================")
+
+
+// Print the results
+console.log("For 60 MPH:");
+console.log("Gallons Needed: " + gallonWith60mph.toFixed(2));
+console.log("Fuel Expense: $" + fuelExpense55.toFixed(2));
+console.log("Time: " + time60.toFixed(2) + " hours");
+console.log("Is Budget Enough: " + (isbudgetEnough60 ? "Yes" : "No"));
+console.log("======================================================")
+
+// Print the results
+console.log("For 75 MPH:");
+console.log("Gallons Needed: " + gallonWith75mph.toFixed(2));
+console.log("Fuel Expense: $" + fuelExpense75.toFixed(2));
+console.log("Time: " + time75.toFixed(2) + " hours");
+console.log("Is Budget Enough: " + (isbudgetEnough75 ? "Yes" : "No"));
+console.log("======================================================")
